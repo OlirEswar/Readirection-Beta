@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Readirection",
+    "version": "1.0.0",
+    "description": "Revisit your reading list instead of going to social media",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "icons": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.youtube.com/*",
+                    "*://*.facebook.com/*",
+                    "*://*.instagram.com/*",
+                    "*://*.linkedin.com/*",
+                    "*://*.x.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "service_worker.js",
+      "type": "module"
+    },
+    "permissions": [
+      "tabs",
+      "storage"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ]
+}
