@@ -57,24 +57,24 @@ export default function TabCard() {
   return (
     <Tabs defaultValue="tab1" className="w-64 flex flex-col h-full">
       <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="tab1">Blocked Sites</TabsTrigger>
-        <TabsTrigger value="tab2">Reading List</TabsTrigger>
+        <TabsTrigger value="tab1">Reading List</TabsTrigger>
+        <TabsTrigger value="tab2">Blocked Sites</TabsTrigger>
       </TabsList>
       <TabsContent value="tab1" className="flex-1">
+        <CardContent className="mt-6 mb-3 px-0 py-0 flex-1">
+          <div className="flex flex-col h-full">
+            <Button onClick={onclick} size="lg">Add Page to Reading List</Button>
+          </div>
+        </CardContent>
+        { listItems }    
+      </TabsContent>
+      <TabsContent value="tab2" className="flex-1">
         <h2 className="mt-6 mb-2 font-semibold">Turn on the slider to block a website!</h2>
         <HorizontalCard name="blocked_site.youtube" icon={yt_icon}/>
         <HorizontalCard name="blocked_site.instagram" icon={insta_icon}/>
         <HorizontalCard name="blocked_site.facebook" icon={fb_icon}/>
         <HorizontalCard name="blocked_site.linkedin" icon={linkedin_icon}/>
         <HorizontalCard name="blocked_site.X" icon={x_icon}/>
-      </TabsContent>
-      <TabsContent value="tab2" className="flex-1">
-        <CardContent className="mt-6 mb-3 px-0 py-0 flex-1">
-          <div className="flex flex-col h-full">
-            <Button onClick={onclick} size="lg">Add Page to Reading List</Button>
-          </div>
-        </CardContent>
-        { listItems }
       </TabsContent>
     </Tabs>
   )
